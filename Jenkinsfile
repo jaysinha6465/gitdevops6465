@@ -1,7 +1,7 @@
 node {
    def app
    stage('Clone repository'){
-        checkout sc
+        checkout scm
 }
 
 stage('Build image'){
@@ -16,9 +16,9 @@ stage('Test image'){
 
 stage('Push image'){
 
-   docker withRegistry('https://registry.hub.docker.com','nuclear12ster'){
-	app push("$(env.BUILD_NUMBER)")
-	app push("latest")
+   docker.withRegistry('https://registry.hub.docker.com','nuclear12ster'){
+	app.push("$(env.BUILD_NUMBER)")
+	app.push("latest")
 	}
      }
 }

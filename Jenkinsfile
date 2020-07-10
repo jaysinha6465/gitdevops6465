@@ -9,7 +9,7 @@ stage('Build image'){
 }
 
 stage('Test image'){
-  app inside{
+  app.inside{
       sh 'echo "Test passed"'
 }
 }

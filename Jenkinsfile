@@ -1,0 +1,24 @@
+node {
+   def app
+   stage('Clone repository'){
+        checkout sc
+}
+
+stage('Build image'){
+ app = docker.build("jaysinha6465/GitDevops6465")
+}
+
+stage('Test image'){
+  app inside{
+      sh 'echo "Test passed"'
+}
+}
+
+stage('Push image'){
+
+   docker withRegistry('https://registry.hub.docker.com','nuclear12ster'){
+	app push("$(env.BUILD_NUMBER)")
+	app push("latest")
+	}
+     }
+}

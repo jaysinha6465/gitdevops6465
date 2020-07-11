@@ -10,7 +10,7 @@ stage('Build image'){
 
 stage('Test image'){
 	
-	docker.image("my-image:${env.BUILD_ID}").inside {
+	app.inside {
         sh 'echo "Test passed"'
 	}
 }

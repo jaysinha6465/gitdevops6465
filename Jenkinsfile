@@ -11,7 +11,7 @@ stage('Build image'){
 stage('Test image'){
 	
 	appImage = 'C:\\Users\\minu\\.jenkins\\workspace\\nuclear-pipeline\\app'
-	appImage.inside {
+	appImage.inside.intern() {
         sh 'echo "Tests passed"'
 	}
 }

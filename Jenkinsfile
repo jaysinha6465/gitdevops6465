@@ -10,10 +10,8 @@ stage('Build image'){
 
 stage('Test image'){
 	
-	appImage = "C:\\Users\\minu\\.jenkins\\workspace\\nuclear-pipeline\\${app}"
-	appImage.inside {
         sh 'echo "Tests passed"'
-	}
+	
 }
 
 stage('Push image'){

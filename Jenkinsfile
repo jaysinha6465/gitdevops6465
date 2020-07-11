@@ -5,7 +5,7 @@ node {
 }
 
 stage('Build image'){
- app = docker.build("test_image","jaysinha6465/gitdevops6465")
+ app = docker.build("jaysinha6465/gitdevops6465")
 }
 
 stage('Test image'){

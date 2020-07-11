@@ -11,13 +11,13 @@ stage('Build image'){
 stage('Test image'){
 	
 	app.inside {
-        sh 'echo "Test passed"'
+        sh 'Test passed'
 	}
 }
 
 stage('Push image'){
 
-   docker.withRegistry('https://registry.hub.docker.com','nuclear12ster:good@2009'){
+   docker.withRegistry('https://registry.hub.docker.com','nuclear12ster'){
 	app.push("${env.BUILD_NUMBER}")
 	app.push("latest")
 	}

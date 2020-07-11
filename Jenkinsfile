@@ -10,7 +10,8 @@ stage('Build image'){
 
 stage('Test image'){
 	
-	app.inside {
+	appImage = 'C://Users//minu//.jenkins//workspace//nuclear-pipeline//"my-image:${env.BUILD_ID}"'
+	appImage.inside {
         sh 'Test passed'
 	}
 }

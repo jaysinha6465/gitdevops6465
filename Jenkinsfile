@@ -9,13 +9,15 @@ stage('Build image'){
 }
 
 stage('Test image'){
+	
+	docker.image("my-image:${env.BUILD_ID}").inside {
         sh 'echo "Test passed"'
-
+	}
 }
 
 stage('Push image'){
 
-   docker.withRegistry('https://registry.hub.docker.com','nuclear12ster'){
+   docker.withRegistry('https://registry.hub.docker.com','nuclear12ster:good@2009'){
 	app.push("${env.BUILD_NUMBER}")
 	app.push("latest")
 	}

@@ -5,13 +5,14 @@ node {
 }
 
 stage('Build image'){
- app = docker.build("my-image:${env.BUILD_ID}")
+ app = docker.build("nuclear12ster/testrespository")
 }
 
 stage('Test image'){
 	
+	app.inside{
         sh 'echo "Tests passed"'
-	
+	}
 }
 
 stage('Push image'){
